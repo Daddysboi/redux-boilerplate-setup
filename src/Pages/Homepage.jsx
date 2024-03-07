@@ -1,9 +1,10 @@
-import Hero from "../components/HomeComponents/Hero";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
     <>
-      <Hero />
+      <Link to="/login">Login</Link>
+      <h1>Redux App Setup</h1>
     </>
   );
 };

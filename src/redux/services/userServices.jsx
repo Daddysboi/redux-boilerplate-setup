@@ -1,20 +1,19 @@
 import axios from "axios";
-import { GET_USER_BY_ID } from "./CONSTANTS";
-import { USER_TOKEN } from "./CONSTANTS";
+import { GET_USER_BY_ID, USER_TOKEN } from "../services/CONSTANTS.jsx";
 
 export const GetUserById = async (userId) => {
   const token = localStorage.getItem(USER_TOKEN);
-  const id = JSON.parse(userId);
   const parsedToken = JSON.parse(token);
+  const id = JSON.parse(userId);
 
-  const response = await axios.get(
+  resp = await axios.get(
     `${process.env.REACT_APP_API_BASE_URL}/${GET_USER_BY_ID}/${id}`,
     {
       headers: {
         Authorization: parsedToken,
-        "Access-Control-Allow-Origin": "*",
+        "Aceess-Control-Allow-Origin": "*",
       },
     }
   );
-  return response.data;
+  return resp.data;
 };
